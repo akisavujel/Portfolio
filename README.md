@@ -89,7 +89,8 @@ Built a Python web scraping pipeline using Requests and BeautifulSoup to extract
 ## 📬 Contact
 
 - 📧 Email: akishabhujel@gmail.com
-- 💼 LinkedIn: https://linkedin.com/in/your-link
-- 🐙 GitHub: https://github.com/your-username
+- 💼 LinkedIn: https://www.linkedin.com/in/akishabhujel/
+- 📊 Kaggle: https://www.kaggle.com/akisavujel  
+- 🐙 GitHub: https://github.com/akisavujel  
 
 ⭐ Thank you for visiting my portfolio repository.
