@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,76 +6,92 @@
     <title>Akisha Bhujel - Data Analyst Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0e27;
-            --bg-secondary: #151932;
-            --accent-cyan: #00d4ff;
-            --accent-purple: #a855f7;
-            --accent-pink: #ec4899;
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --text-dim: #64748b;
-            --card-bg: rgba(21, 25, 50, 0.6);
-            --glow-cyan: rgba(0, 212, 255, 0.3);
-            --glow-purple: rgba(168, 85, 247, 0.3);
+            --bg-primary: #fff5f8;
+            --bg-secondary: #fff0f5;
+            --accent-rose: #f472b6;
+            --accent-blush: #fb7185;
+            --accent-soft: #fda4af;
+            --accent-lilac: #e879f9;
+            --accent-cream: #fef3f7;
+            --text-primary: #5c2d45;
+            --text-secondary: #9d6e7e;
+            --text-dim: #c4a0b0;
+            --card-bg: rgba(255, 240, 248, 0.85);
+            --glow-pink: rgba(244, 114, 182, 0.25);
+            --glow-lilac: rgba(232, 121, 249, 0.2);
+            --border-soft: rgba(244, 114, 182, 0.3);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Lexend', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.7;
             overflow-x: hidden;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E🍓%3C/text%3E%3C/svg%3E") 12 12, auto;
         }
 
-        /* Animated gradient background */
+        /* Dreamy background */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, var(--glow-purple) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, var(--glow-cyan) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
-            animation: gradientShift 15s ease infinite;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 15% 20%, rgba(251, 113, 133, 0.18) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 10%, rgba(232, 121, 249, 0.15) 0%, transparent 45%),
+                radial-gradient(ellipse at 60% 80%, rgba(244, 114, 182, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 5% 90%, rgba(253, 164, 175, 0.2) 0%, transparent 40%);
             pointer-events: none;
             z-index: 0;
+            animation: dreamyPulse 20s ease infinite;
         }
 
-        @keyframes gradientShift {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
+        @keyframes dreamyPulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
         }
 
-        /* Grid overlay effect */
+        /* Floating petals */
+        .petals {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            font-size: 1.2rem;
+            opacity: 0;
+            animation: floatPetal linear infinite;
+        }
+
+        @keyframes floatPetal {
+            0%   { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+            10%  { opacity: 0.6; }
+            90%  { opacity: 0.4; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Dot pattern */
         body::after {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(244,114,182,0.12) 1px, transparent 1px);
+            background-size: 28px 28px;
             pointer-events: none;
             z-index: 0;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
             position: relative;
@@ -86,19 +100,7 @@
 
         /* Header */
         header {
-            padding: 3rem 0 0.5rem;
-            animation: fadeInDown 0.8s ease;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            padding: 3.5rem 0 1rem;
         }
 
         .header-content {
@@ -109,551 +111,470 @@
             justify-content: space-between;
         }
 
-        .header-text {
-            flex: 1;
-        }
+        .header-text { flex: 1; }
 
         .profile-photo {
-            width: 250px;
-            height: 250px;
-            border-radius: 12px;
+            width: 230px;
+            height: 230px;
+            border-radius: 50% 40% 50% 40% / 40% 50% 40% 50%;
             background: var(--card-bg);
-            border: 2px solid var(--accent-cyan);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-dim);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1rem;
-            text-align: center;
-            padding: 1rem;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 25px var(--glow-cyan);
-            transition: all 0.3s ease;
+            border: 3px solid var(--accent-rose);
+            overflow: hidden;
+            box-shadow: 0 8px 32px var(--glow-pink), 0 0 0 8px rgba(244,114,182,0.1);
+            transition: all 0.4s ease;
+            flex-shrink: 0;
         }
 
         .profile-photo:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 35px var(--glow-cyan);
+            transform: scale(1.03) rotate(1deg);
+            box-shadow: 0 12px 40px var(--glow-pink), 0 0 0 12px rgba(244,114,182,0.1);
         }
 
+        .profile-photo img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        /* Name */
         h1 {
-            font-size: 4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            font-style: italic;
+            background: linear-gradient(135deg, #f472b6 0%, #e879f9 50%, #fb7185 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
+            margin-bottom: 0.3rem;
             line-height: 1.1;
         }
 
         .subtitle {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1.1rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            letter-spacing: 0.05em;
         }
 
+        .subtitle span {
+            color: var(--accent-rose);
+        }
+
+        /* Social links */
         .header-contact {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             margin-top: 1rem;
-            position: relative;
-            z-index: 10;
         }
 
         .header-contact-link {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 8px;
-            color: var(--accent-cyan);
+            background: white;
+            border: 1.5px solid var(--border-soft);
+            border-radius: 50%;
+            color: var(--accent-rose);
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            cursor: pointer;
             text-decoration: none;
-            position: relative;
-            z-index: 10;
+            box-shadow: 0 2px 10px var(--glow-pink);
         }
 
         .header-contact-link:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 5px 15px var(--glow-cyan);
-            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-3px) scale(1.1);
+            background: var(--accent-rose);
+            color: white;
+            border-color: var(--accent-rose);
+            box-shadow: 0 6px 20px var(--glow-pink);
         }
 
-        .header-contact-link svg {
-            transition: transform 0.3s ease;
-            pointer-events: none;
+        .blogger-link {
+            color: #e879f9;
+            border-color: rgba(232,121,249,0.4);
         }
 
-        .header-contact-link:hover svg {
-            transform: scale(1.1);
+        .blogger-link:hover {
+            background: #e879f9;
+            border-color: #e879f9;
+            color: white;
+            box-shadow: 0 6px 20px var(--glow-lilac);
         }
 
         /* Sections */
         section {
-            margin: 2.5rem 0;
-            animation: fadeInUp 0.8s ease;
-            animation-fill-mode: both;
+            margin: 3rem 0;
+            will-change: transform, opacity;
         }
 
-        section:nth-child(2) { animation-delay: 0.1s; }
-        section:nth-child(3) { animation-delay: 0.2s; }
-        section:nth-child(4) { animation-delay: 0.3s; }
-        section:nth-child(5) { animation-delay: 0.4s; }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* Section headers — no underline */
         h2 {
+            font-family: 'Playfair Display', serif;
             font-size: 2rem;
-            font-weight: 600;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
-            position: relative;
             display: inline-block;
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-cyan), transparent);
+        h2 .emoji {
+            font-style: normal;
+            margin-right: 0.4rem;
         }
 
+        /* About */
         .about-text {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--text-secondary);
-            line-height: 1.8;
-            text-align: justify;
+            line-height: 1.9;
+            background: white;
+            border: 1.5px solid var(--border-soft);
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 4px 20px var(--glow-pink);
+            position: relative;
         }
+
+
 
         /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 600px) {
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
         }
 
         .skill-category {
-            background: var(--card-bg);
-            border: 1px solid rgba(168, 85, 247, 0.2);
-            border-radius: 12px;
-            padding: 1.5rem;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--glow-purple) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            background: white;
+            border: 1.5px solid var(--border-soft);
+            border-radius: 18px;
+            padding: 1.4rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 12px rgba(244,114,182,0.08);
         }
 
         .skill-category:hover {
             transform: translateY(-4px);
-            border-color: var(--accent-purple);
-        }
-
-        .skill-category:hover::before {
-            opacity: 0.1;
+            box-shadow: 0 8px 28px var(--glow-pink);
         }
 
         .skill-category h3 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: var(--accent-purple);
-            font-family: 'IBM Plex Mono', monospace;
-            position: relative;
-            z-index: 1;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 0.9rem;
+            color: var(--accent-rose);
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            position: relative;
-            z-index: 1;
+            gap: 0.45rem;
         }
 
         .skill-tag {
-            padding: 0.4rem 0.9rem;
-            background: rgba(168, 85, 247, 0.1);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            border-radius: 6px;
-            font-size: 0.85rem;
+            padding: 0.35rem 0.85rem;
+            background: linear-gradient(135deg, rgba(244,114,182,0.1), rgba(232,121,249,0.08));
+            border: 1px solid rgba(244,114,182,0.25);
+            border-radius: 20px;
+            font-size: 0.8rem;
             color: var(--text-primary);
-            font-family: 'IBM Plex Mono', monospace;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .skill-tag:hover {
-            background: rgba(168, 85, 247, 0.2);
-            border-color: var(--accent-purple);
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--accent-rose), var(--accent-lilac));
+            color: white;
+            border-color: transparent;
+            transform: translateY(-1px);
         }
 
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 600px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 1.4rem;
+            margin-top: 1.5rem;
         }
 
         .project-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(236, 72, 153, 0.2);
-            border-radius: 12px;
-            padding: 1.8rem;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
+            background: white;
+            border: 1.5px solid var(--border-soft);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.35s ease;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 1rem;
+            gap: 0.9rem;
+            box-shadow: 0 2px 12px rgba(244,114,182,0.08);
+            position: relative;
+            overflow: hidden;
         }
 
-        .project-card::before {
+        .project-card::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            inset: 0;
+            background: linear-gradient(135deg, rgba(244,114,182,0.05), rgba(232,121,249,0.05));
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.3s ease;
         }
 
         .project-card:hover {
             transform: translateY(-6px);
-            border-color: var(--accent-pink);
-            box-shadow: 0 12px 30px rgba(236, 72, 153, 0.2);
+            border-color: var(--accent-rose);
+            box-shadow: 0 14px 36px var(--glow-pink);
         }
 
-        .project-card:hover::before {
+        .project-card:hover::after {
             opacity: 1;
         }
 
         .project-image {
             width: 100%;
-            height: 150px;
+            height: 145px;
             background: var(--bg-secondary);
-            border: 2px dashed rgba(0, 212, 255, 0.3);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-dim);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.9rem;
+            border: 1.5px dashed rgba(244,114,182,0.4);
+            border-radius: 12px;
+            overflow: hidden;
             position: relative;
             z-index: 1;
-            transition: all 0.3s ease;
         }
 
-        .project-card:hover .project-image {
-            border-color: var(--accent-cyan);
-            background: rgba(0, 212, 255, 0.05);
+        .project-image img {
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: 12px;
+            transform: scale(1.05);
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
         }
 
         .project-card h3 {
-            font-size: 1.2rem;
-            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
             color: var(--text-primary);
             position: relative;
             z-index: 1;
         }
 
         .project-link {
-            color: var(--accent-cyan);
+            color: white;
             text-decoration: none;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.85rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--accent-cyan);
-            border-radius: 6px;
+            font-size: 0.82rem;
+            padding: 0.5rem 1.2rem;
+            background: linear-gradient(135deg, var(--accent-rose), var(--accent-lilac));
+            border-radius: 20px;
             position: relative;
             z-index: 1;
             transition: all 0.3s ease;
+            box-shadow: 0 3px 12px var(--glow-pink);
+            letter-spacing: 0.02em;
         }
 
         .project-link:hover {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--glow-pink);
         }
 
         /* Certifications */
         .cert-list {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
-            max-width: 700px;
+            gap: 0.9rem;
+            margin-top: 1.5rem;
+            max-width: 680px;
         }
 
+        .cert-item-link { text-decoration: none; }
+
         .cert-item {
-            background: var(--card-bg);
-            border-left: 3px solid var(--accent-cyan);
-            padding: 1.2rem 1.5rem;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            background: white;
+            border: 1.5px solid var(--border-soft);
+            padding: 1.1rem 1.5rem 1.1rem 2.5rem;
+            border-radius: 14px;
             position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(244,114,182,0.06);
         }
 
         .cert-item::before {
-            content: '✓';
+            content: '🎀';
             position: absolute;
-            left: -12px;
+            left: 14px;
             top: 50%;
             transform: translateY(-50%);
-            width: 24px;
-            height: 24px;
-            background: var(--accent-cyan);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: var(--bg-primary);
-            font-weight: 600;
+            font-size: 1rem;
         }
 
         .cert-item:hover {
             transform: translateX(8px);
-            background: rgba(0, 212, 255, 0.05);
+            border-color: var(--accent-rose);
+            box-shadow: 0 6px 20px var(--glow-pink);
+            background: rgba(255,245,248,1);
         }
 
         .cert-item p {
             color: var(--text-primary);
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
-        /* Email Contact Section */
+        /* Contact Section */
         .email-contact-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1.5rem;
             padding: 3rem 2rem;
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            max-width: 600px;
+            background: white;
+            border: 1.5px solid var(--border-soft);
+            border-radius: 24px;
+            max-width: 560px;
             margin: 0 auto;
             text-align: center;
+            box-shadow: 0 8px 32px var(--glow-pink);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .email-contact-wrapper::before {
+            content: '🌷';
+            font-size: 2rem;
+            line-height: 1;
         }
 
         .email-text {
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1rem;
+            line-height: 1.7;
         }
 
         .email-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            color: var(--bg-primary);
+            padding: 0.9rem 2.8rem;
+            background: linear-gradient(135deg, #f472b6, #e879f9);
+            color: white;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 30px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 4px 18px var(--glow-pink);
+            letter-spacing: 0.04em;
         }
 
         .email-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+            box-shadow: 0 8px 28px rgba(244,114,182,0.5);
+        }
+
+        /* Ribbon decoration */
+        .ribbon {
+            text-align: center;
+            font-size: 1.3rem;
+            letter-spacing: 0.5rem;
+            color: var(--accent-soft);
+            margin: 0.5rem 0 0;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem 0 3rem;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            will-change: opacity, transform;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .subtitle {
-                font-size: 0.95rem;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .profile-photo {
-                width: 180px;
-                height: 180px;
-                align-self: center;
-            }
-
-            .header-contact {
-                justify-content: flex-start;
-            }
-
-            .header-contact-link {
-                width: 36px;
-                height: 36px;
-            }
-
-            .skills-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .about-text {
-                font-size: 1rem;
-            }
-
-            section {
-                margin: 3rem 0;
-            }
-
-            header {
-                padding: 2rem 0 1rem;
-            }
+            h1 { font-size: 2.6rem; }
+            .header-content { flex-direction: column; gap: 1.5rem; }
+            .profile-photo { width: 160px; height: 160px; align-self: center; }
+            .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+            h2 { font-size: 1.6rem; }
         }
 
         @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 0.85rem;
-                flex-wrap: wrap;
-            }
-
-            h2 {
-                font-size: 1.3rem;
-            }
-
-            .header-contact-link {
-                width: 34px;
-                height: 34px;
-            }
-
-            .skill-category,
-            .project-card {
-                padding: 1.2rem;
-            }
-        }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+            h1 { font-size: 2rem; }
+            .container { padding: 0 1.2rem; }
         }
     </style>
 </head>
 <body>
+
+<!-- Floating petals -->
+<div class="petals" id="petals"></div>
+
 <div class="container">
     <header>
         <div class="header-content">
             <div class="header-text">
                 <h1>Akisha Bhujel</h1>
-                <p class="subtitle">Aspiring Data Analyst | BIT Student</p>
+                <p class="subtitle">✨ Aspiring Data Analyst &nbsp;·&nbsp; BIT Student <span>🌸</span></p>
+                <div class="ribbon">· · ♡ · ·</div>
                 <div class="header-contact">
+                    <!-- GitHub -->
                     <a href="https://github.com/akisavujel" target="_blank" rel="noopener noreferrer" class="header-contact-link" title="GitHub">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
                     </a>
+                    <!-- Kaggle -->
                     <a href="https://www.kaggle.com/akisavujel" target="_blank" rel="noopener noreferrer" class="header-contact-link" title="Kaggle">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.358"/>
                         </svg>
                     </a>
+                    <!-- LinkedIn -->
                     <a href="https://www.linkedin.com/in/akisa-vujel-5437843a2/" target="_blank" rel="noopener noreferrer" class="header-contact-link" title="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <!-- Blogger (pink) -->
+                    <a href="https://akisavujel.blogspot.com/" target="_blank" rel="noopener noreferrer" class="header-contact-link blogger-link" title="Blogger">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M21.976 24H2.026C.9 24 0 23.1 0 21.976V2.026C0 .9.9 0 2.026 0h19.95C23.1 0 24 .9 24 2.026v19.95C24 23.1 23.1 24 21.976 24zM11.5 5.5H8C6.619 5.5 5.5 6.619 5.5 8v8c0 1.381 1.119 2.5 2.5 2.5h8c1.381 0 2.5-1.119 2.5-2.5v-4c0-.553-.447-1-1-1h-1c-.553 0-1-.447-1-1V8c0-1.381-1.119-2.5-2.5-2.5zm-2 5h4c.553 0 1 .447 1 1s-.447 1-1 1H9.5c-.553 0-1-.447-1-1s.447-1 1-1zm0 3.5h5c.553 0 1 .447 1 1s-.447 1-1 1h-5c-.553 0-1-.447-1-1s.447-1 1-1zm5-6.5c.828 0 1.5.672 1.5 1.5S15.328 10.5 14.5 10.5H14c-.553 0-1-.447-1-1V8c0-.553.447-1 1-1h.5z"/>
                         </svg>
                     </a>
                 </div>
             </div>
-            <div class="profile-photo" style="padding:0; overflow:hidden;">
-                <img src="images/me.jpg" alt="Akisha Bhujel" 
-                     style="width:100%; height:100%; object-fit:cover; border-radius:12px; display:block; transform: scale(1.1);">
+            <div class="profile-photo">
+                <img src="images/me.jpg" alt="Akisha Bhujel">
             </div>
         </div>
     </header>
 
     <main>
-        <section id="about">
-            <h2>About Me</h2>
+        <section id="about" class="reveal">
+            <h2><span class="emoji">🎀</span>About Me</h2>
             <p class="about-text">
-                I am a second-year Bachelor of Information Technology (BIT) student with a strong interest in data analysis. I work with datasets to identify patterns and turn data into actionable insights for better decision-making. I focus on solving problems, using technology effectively, and continuously improving my skills.
+                I am a second-year Bachelor of Information Technology (BIT) student with a strong interest in data analysis. I work with datasets to identify patterns and turn data into actionable insights for better decision-making. I focus on solving problems, using technology effectively, and continuously improving my skills. 🌷
             </p>
         </section>
 
-        <section id="skills">
-            <h2>Skills</h2>
+        <section id="skills" class="reveal">
+            <h2><span class="emoji">🍓</span>Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Programming & Querying</h3>
@@ -663,7 +584,6 @@
                         <span class="skill-tag">SQL</span>
                     </div>
                 </div>
-                
                 <div class="skill-category">
                     <h3>Data Analysis & Visualization</h3>
                     <div class="skill-tags">
@@ -672,7 +592,6 @@
                         <span class="skill-tag">Data Visualization</span>
                     </div>
                 </div>
-                
                 <div class="skill-category">
                     <h3>Web Technologies</h3>
                     <div class="skill-tags">
@@ -680,7 +599,6 @@
                         <span class="skill-tag">CSS</span>
                     </div>
                 </div>
-                
                 <div class="skill-category">
                     <h3>Tools & Platforms</h3>
                     <div class="skill-tags">
@@ -692,114 +610,113 @@
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
+        <section id="projects" class="reveal">
+            <h2><span class="emoji">🌸</span>Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image" style="overflow:hidden;">
-                        <img src="images/1.avif" alt="Insurance Policy EDA" 
-                             style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block; transform: scale(1.05);">
+                    <div class="project-image">
+                        <img src="images/1.avif" alt="Insurance Policy EDA">
                     </div>
                     <h3>Insurance Risk & Policy Analysis (Python EDA)</h3>
-                    <a href="https://www.kaggle.com/code/akisavujel/insurance-analysis" class="project-link">View Project</a>
+                    <a href="https://www.kaggle.com/code/akisavujel/insurance-analysis" class="project-link">View Project ✨</a>
                 </div>
-                
                 <div class="project-card">
-                    <div class="project-image" style="overflow:hidden;">
-                        <img src="images/2.png" alt="Coffee Sales SQL Project" 
-                             style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block; transform: scale(1.05);">
+                    <div class="project-image">
+                        <img src="images/2.png" alt="Coffee Sales SQL Project">
                     </div>
                     <h3>Sales Performance Analysis using MySQL</h3>
-                    <a href="https://github.com/akisavujel/Coffee-database-mysql" class="project-link">View Project</a>
+                    <a href="https://github.com/akisavujel/Coffee-database-mysql" class="project-link">View Project ✨</a>
                 </div>
-                
                 <div class="project-card">
-                    <div class="project-image" style="overflow:hidden;">
-                        <img src="images/3.png" alt="Bakery Excel Dashboard" 
-                             style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block; transform: scale(1.05);">
+                    <div class="project-image">
+                        <img src="images/3.png" alt="Machine Learning">
                     </div>
-                    <h3>Machine Learning</h3>
-                    <a href="https://github.com/akisavujel/Machine-Learning" class="project-link">View Project</a>
+                    <h3>Machine Learning Project using Python</h3>
+                    <a href="https://github.com/akisavujel/Machine-Learning" class="project-link">View Project ✨</a>
                 </div>
-                
                 <div class="project-card">
-                    <div class="project-image" style="overflow:hidden;">
-                        <img src="images/4.avif" alt="Skincare Management System" 
-                             style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block; transform: scale(1.05);">
+                    <div class="project-image">
+                        <img src="images/4.avif" alt="Skincare Management System">
                     </div>
                     <h3>Skincare Management Python</h3>
-                    <a href="https://github.com/akisavujel/Skincare-system-python" class="project-link">View Project</a>
+                    <a href="https://github.com/akisavujel/Skincare-system-python" class="project-link">View Project ✨</a>
                 </div>
-                
                 <div class="project-card">
-                    <div class="project-image" style="overflow:hidden;">
-                        <img src="images/5.png" alt="" 
-                             style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block; transform: scale(1.05);">
+                    <div class="project-image">
+                        <img src="images/5.png" alt="Heart Failure Dashboard">
                     </div>
                     <h3>Heart Failure Dashboard</h3>
-                    <a href="https://public.tableau.com/app/profile/akisha.bhujel/viz/Book1_17708742326480/Dashboard1?publish=yes" class="project-link">View Project</a>
+                    <a href="https://public.tableau.com/app/profile/akisha.bhujel/viz/Book1_17708742326480/Dashboard1?publish=yes" class="project-link">View Project ✨</a>
                 </div>
-                
                 <div class="project-card">
-                    <div class="project-image" style="overflow:hidden;">
-                        <img src="images/6.jpeg" alt="" 
-                             style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block; transform: scale(1.05);">
+                    <div class="project-image">
+                        <img src="images/6.jpeg" alt="World Life Analysis">
                     </div>
                     <h3>World Life Analysis</h3>
-                    <a href="https://github.com/akisavujel/World-Life-Expectancy-2024" class="project-link">View Project</a>
+                    <a href="https://github.com/akisavujel/World-Life-Expectancy-2024" class="project-link">View Project ✨</a>
                 </div>
             </div>
+            <p style="text-align:center; margin-top:2rem; color:var(--text-secondary); font-size:1rem;">
+                To view more of my projects, visit my 
+                <a href="https://github.com/akisavujel" target="_blank" style="color:var(--accent-rose); font-weight:500; text-decoration:none; border-bottom: 1.5px dotted var(--accent-rose);">GitHub 🍓</a>
+            </p>
         </section>
 
-        <section id="certifications">
-            <h2>Certifications</h2>
+        <section id="certifications" class="reveal">
+            <h2><span class="emoji">🎀</span>Certifications</h2>
             <div class="cert-list">
-                <a href="https://www.kaggle.com/learn/certification/akisavujel/data-visualization" target="_blank" class="cert-item-link" style="text-decoration: none;">
-                    <div class="cert-item">
-                        <p style="text-decoration: none;">Kaggle Certificate in Data Visualization</p>
-                    </div>
+                <a href="https://www.kaggle.com/learn/certification/akisavujel/data-visualization" target="_blank" class="cert-item-link">
+                    <div class="cert-item"><p>Kaggle Certificate in Data Visualization</p></div>
                 </a>
-                <a href="https://www.linkedin.com/in/akishabhujel/overlay/Certifications/1134522276/treasury/?profileId=ACoAAGK22gMBbi6RgI6RexMw-k72rAaY7ej949w" target="_blank" class="cert-item-link" style="text-decoration: none;">
-                    <div class="cert-item">
-                        <p style="text-decoration: none;">Microsoft Excel Course</p>
-                    </div>
+                <a href="https://www.linkedin.com/in/akishabhujel/overlay/Certifications/1134522276/treasury/?profileId=ACoAAGK22gMBbi6RgI6RexMw-k72rAaY7ej949w" target="_blank" class="cert-item-link">
+                    <div class="cert-item"><p>Microsoft Excel Course</p></div>
                 </a>
-                <a href="https://oneroadmap.io/skills/sql/certificate/CERT-57653593" target="_blank" class="cert-item-link" style="text-decoration: none;">
-                    <div class="cert-item">
-                        <p style="text-decoration: none;">OneRoadmap SQL Course</p>
-                    </div>
+                <a href="https://oneroadmap.io/skills/sql/certificate/CERT-57653593" target="_blank" class="cert-item-link">
+                    <div class="cert-item"><p>OneRoadmap SQL Course</p></div>
                 </a>
             </div>
         </section>
 
-        <section id="contact-email">
-            <h2>Get In Touch</h2>
+        <section id="contact-email" class="reveal">
+            <h2><span class="emoji">💌</span>Get In Touch</h2>
             <div class="email-contact-wrapper">
-                <p class="email-text">Have a question or want to work together? Feel free to reach out!</p>
-                <a href="mailto:akishabhujel@gmail.com" class="email-button">Email Me</a>
+                <p class="email-text">Have a question or want to work together? Feel free to reach out — I'd love to hear from you! 🌷</p>
+                <a href="mailto:akishabhujel@gmail.com" class="email-button">Email Me 💗</a>
             </div>
         </section>
     </main>
+
+    <footer>
+        <p>🌸 made with love · akisha bhujel · 2026 🌸</p>
+    </footer>
 </div>
 
+<script>
+    // Floating petals — lightweight, no scroll jank
+    const petalEmojis = ['🌸', '🌷', '🍓', '✿', '🌺', '💗'];
+    const container = document.getElementById('petals');
+    for (let i = 0; i < 18; i++) {
+        const p = document.createElement('span');
+        p.className = 'petal';
+        p.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.fontSize = (0.8 + Math.random() * 0.8) + 'rem';
+        p.style.animationDuration = (12 + Math.random() * 16) + 's';
+        p.style.animationDelay = (Math.random() * 20) + 's';
+        container.appendChild(p);
+    }
 
-    <script>
-        // Scroll reveal animation
-        const reveals = document.querySelectorAll('section');
-        
-        function checkScroll() {
-            reveals.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (sectionTop < windowHeight * 0.85) {
-                    section.classList.add('active');
-                }
-            });
-        }
+    // Buttery smooth reveal — pure IntersectionObserver, no timeouts
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        window.addEventListener('scroll', checkScroll);
-        checkScroll(); // Initial check on load
-    </script>
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
