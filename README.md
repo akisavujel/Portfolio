@@ -56,14 +56,11 @@ The dashboard presents complex medical data in a clear format for analytical int
 ### 🗄 Coffee Sales SQL Analysis
 Designed and queried a relational MySQL database to analyze sales performance, revenue trends, and product insights using SQL queries.
 
-### 📈 Bakery Sales Dashboard (Excel)
-Built an interactive Excel dashboard using Pivot Tables, Pivot Charts to analyze:
-- Revenue trends
-- Product performance
-- Category-wise sales distribution
-- Monthly sales patterns
+### 🤖 Machine Learning Projects (Python)
 
-Converted raw transactional data into actionable business insights.
+A growing collection of Machine Learning models built from scratch using Python and Jupyter Notebook, covering core ML concepts and algorithms.
+
+Focused on understanding the mathematics behind each algorithm, implementing them hands-on, and evaluating model performance.
 
 ### 💻 Skincare Management System (Python)
 Developed a Python-based management system to manage skincare product records, customer data, and transactions.
