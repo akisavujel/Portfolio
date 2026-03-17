@@ -1,15 +1,8 @@
-<div align="center">
+
 
 # Akisa Vujel
 ### Data Analyst · BIT Student
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-Live-c9954a?style=for-the-badge&logo=github&logoColor=white)](https://akisavujel.github.io/Portfolio/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/akisa-vujel-5437843a2/)
-[![Kaggle](https://img.shields.io/badge/Kaggle-Profile-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/akisavujel)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/akisavujel)
-[![Hashnode](https://img.shields.io/badge/Hashnode-Blog-2962FF?style=for-the-badge&logo=hashnode&logoColor=white)](https://hashnode.com/@akisavujel)
-
-</div>
 
 ---
 
