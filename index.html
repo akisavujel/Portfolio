@@ -1,721 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akisha Bhujel - Data Analyst Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Akisa Vujel - Data Analyst</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-primary: #fff5f8;
-            --bg-secondary: #fff0f5;
-            --accent-rose: #f472b6;
-            --accent-blush: #fb7185;
-            --accent-soft: #fda4af;
-            --accent-lilac: #e879f9;
-            --accent-cream: #fef3f7;
-            --text-primary: #5c2d45;
-            --text-secondary: #9d6e7e;
-            --text-dim: #c4a0b0;
-            --card-bg: rgba(255, 240, 248, 0.85);
-            --glow-pink: rgba(244, 114, 182, 0.25);
-            --glow-lilac: rgba(232, 121, 249, 0.2);
-            --border-soft: rgba(244, 114, 182, 0.3);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
-            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E🍓%3C/text%3E%3C/svg%3E") 12 12, auto;
-        }
-
-        /* Dreamy background */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 15% 20%, rgba(251, 113, 133, 0.18) 0%, transparent 50%),
-                radial-gradient(ellipse at 85% 10%, rgba(232, 121, 249, 0.15) 0%, transparent 45%),
-                radial-gradient(ellipse at 60% 80%, rgba(244, 114, 182, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 5% 90%, rgba(253, 164, 175, 0.2) 0%, transparent 40%);
-            pointer-events: none;
-            z-index: 0;
-            animation: dreamyPulse 20s ease infinite;
-        }
-
-        @keyframes dreamyPulse {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
-        /* Floating petals */
-        .petals {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .petal {
-            position: absolute;
-            font-size: 1.2rem;
-            opacity: 0;
-            animation: floatPetal linear infinite;
-        }
-
-        @keyframes floatPetal {
-            0%   { transform: translateY(-20px) rotate(0deg); opacity: 0; }
-            10%  { opacity: 0.6; }
-            90%  { opacity: 0.4; }
-            100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
-        }
-
-        /* Dot pattern */
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: radial-gradient(circle, rgba(244,114,182,0.12) 1px, transparent 1px);
-            background-size: 28px 28px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #f5f0eb;
+    color: #111827;
+    line-height: 1.6;
+}
+.role {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9c7b6b;
+    margin-bottom: 14px;
+}
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 1;
+            padding: 0 40px;
         }
-
-        /* Header */
-        header {
-            padding: 3.5rem 0 1rem;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: flex-start;
-            gap: 3rem;
-            margin-bottom: 1.5rem;
-            justify-content: space-between;
-        }
-
-        .header-text { flex: 1; }
-
+        .about-section {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin: 40px 0 15px; /* ← add top space */
+    background: white;
+    border-radius: 16px;
+    padding: 70px 50px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
         .profile-photo {
-            width: 230px;
-            height: 230px;
-            border-radius: 50% 40% 50% 40% / 40% 50% 40% 50%;
-            background: var(--card-bg);
-            border: 3px solid var(--accent-rose);
-            overflow: hidden;
-            box-shadow: 0 8px 32px var(--glow-pink), 0 0 0 8px rgba(244,114,182,0.1);
-            transition: all 0.4s ease;
-            flex-shrink: 0;
-        }
-
-        .profile-photo:hover {
-            transform: scale(1.03) rotate(1deg);
-            box-shadow: 0 12px 40px var(--glow-pink), 0 0 0 12px rgba(244,114,182,0.1);
-        }
-
+    width: 280px;
+    height: 280px;
+    border-radius: 20px; /* 👈 makes it curvy */
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
         .profile-photo img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-
-        /* Name */
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.8rem;
-            font-weight: 700;
-            font-style: italic;
-            background: linear-gradient(135deg, #f472b6 0%, #e879f9 50%, #fb7185 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.3rem;
-            line-height: 1.1;
-        }
-
-        .subtitle {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.05em;
-        }
-
-        .subtitle span {
-            color: var(--accent-rose);
-        }
-
-        /* Social links */
-        .header-contact {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .header-contact-link {
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border: 1.5px solid var(--border-soft);
-            border-radius: 50%;
-            color: var(--accent-rose);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            box-shadow: 0 2px 10px var(--glow-pink);
-        }
-
-        .header-contact-link:hover {
-            transform: translateY(-3px) scale(1.1);
-            background: var(--accent-rose);
-            color: white;
-            border-color: var(--accent-rose);
-            box-shadow: 0 6px 20px var(--glow-pink);
-        }
-
-        .blogger-link {
-            color: #e879f9;
-            border-color: rgba(232,121,249,0.4);
-        }
-
-        .blogger-link:hover {
-            background: #e879f9;
-            border-color: #e879f9;
-            color: white;
-            box-shadow: 0 6px 20px var(--glow-lilac);
-        }
-
-        /* Sections */
-        section {
-            margin: 3rem 0;
-            will-change: transform, opacity;
-        }
-
-        /* Section headers — no underline */
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            font-style: italic;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        h2 .emoji {
-            font-style: normal;
-            margin-right: 0.4rem;
-        }
-
-        /* About */
         .about-text {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            line-height: 1.9;
+            flex: 1;
+            text-align: left;
+        }
+        .about-text h2 {
+            font-size: 2.4rem;                  /* bigger name title */
+            margin-bottom: 16px;
+            color: #5c4033;
+            font-weight: 700;
+        }
+        .about-text p {
+    font-size: 1.05rem;
+    color: #4b5563;
+    text-align: justify;
+}
+        .projects-section {
+            margin-bottom: 15px;
             background: white;
-            border: 1.5px solid var(--border-soft);
-            border-radius: 20px;
-            padding: 1.8rem 2rem;
-            box-shadow: 0 4px 20px var(--glow-pink);
-            position: relative;
+            border-radius: 16px;
+            padding: 70px 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
-
-
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.2rem;
-            margin-top: 1.5rem;
+        .projects-section h2 {
+            text-align: center;
+            font-size: 1.9rem;
+            margin-bottom: 30px;
+            color: #111827;
         }
-
-        .skill-category {
-            background: white;
-            border: 1.5px solid var(--border-soft);
-            border-radius: 18px;
-            padding: 1.4rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 2px 12px rgba(244,114,182,0.08);
-        }
-
-        .skill-category:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 28px var(--glow-pink);
-        }
-
-        .skill-category h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.95rem;
-            font-style: italic;
-            margin-bottom: 0.9rem;
-            color: var(--accent-rose);
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-        }
-
-        .skill-tag {
-            padding: 0.35rem 0.85rem;
-            background: linear-gradient(135deg, rgba(244,114,182,0.1), rgba(232,121,249,0.08));
-            border: 1px solid rgba(244,114,182,0.25);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--text-primary);
-            transition: all 0.2s ease;
-        }
-
-        .skill-tag:hover {
-            background: linear-gradient(135deg, var(--accent-rose), var(--accent-lilac));
-            color: white;
-            border-color: transparent;
-            transform: translateY(-1px);
-        }
-
-        /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-            gap: 1.4rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
-
         .project-card {
-            background: white;
-            border: 1.5px solid var(--border-soft);
-            border-radius: 20px;
-            padding: 1.5rem;
-            transition: all 0.35s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 0.9rem;
-            box-shadow: 0 2px 12px rgba(244,114,182,0.08);
-            position: relative;
+            background: #fafafa;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            transition: transform 0.25s, box-shadow 0.25s;
         }
-
-        .project-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(244,114,182,0.05), rgba(232,121,249,0.05));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
         .project-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent-rose);
-            box-shadow: 0 14px 36px var(--glow-pink);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
         }
+        .project-placeholder {
+    height: 240px;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #6b7280;
+    overflow: hidden;
+    flex-shrink: 0;
+}
 
-        .project-card:hover::after {
-            opacity: 1;
-        }
-
-        .project-image {
-            width: 100%;
-            height: 145px;
-            background: var(--bg-secondary);
-            border: 1.5px dashed rgba(244,114,182,0.4);
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-image img {
-            width: 100%; height: 100%; object-fit: cover;
-            border-radius: 12px;
-            transform: scale(1.05);
-            transition: transform 0.4s ease;
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.1);
-        }
-
-        .project-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            color: var(--text-primary);
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-link {
-            color: white;
-            text-decoration: none;
-            font-size: 0.82rem;
-            padding: 0.5rem 1.2rem;
-            background: linear-gradient(135deg, var(--accent-rose), var(--accent-lilac));
-            border-radius: 20px;
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 12px var(--glow-pink);
-            letter-spacing: 0.02em;
-        }
-
-        .project-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--glow-pink);
-        }
-
-        /* Certifications */
-        .cert-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.9rem;
-            margin-top: 1.5rem;
-            max-width: 680px;
-        }
-
-        .cert-item-link { text-decoration: none; }
-
-        .cert-item {
-            background: white;
-            border: 1.5px solid var(--border-soft);
-            padding: 1.1rem 1.5rem 1.1rem 2.5rem;
-            border-radius: 14px;
-            position: relative;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(244,114,182,0.06);
-        }
-
-        .cert-item::before {
-            content: '🎀';
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1rem;
-        }
-
-        .cert-item:hover {
-            transform: translateX(8px);
-            border-color: var(--accent-rose);
-            box-shadow: 0 6px 20px var(--glow-pink);
-            background: rgba(255,245,248,1);
-        }
-
-        .cert-item p {
-            color: var(--text-primary);
-            font-size: 0.95rem;
-        }
-
-        /* Contact Section */
-        .email-contact-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 3rem 2rem;
-            background: white;
-            border: 1.5px solid var(--border-soft);
-            border-radius: 24px;
-            max-width: 560px;
-            margin: 0 auto;
+.project-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+        .project-content {
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 8px 32px var(--glow-pink);
-            position: relative;
-            overflow: hidden;
         }
-
-        .email-contact-wrapper::before {
-            content: '🌷';
-            font-size: 2rem;
-            line-height: 1;
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #111827;
         }
-
-        .email-text {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .email-button {
+        .view-btn {
             display: inline-block;
-            padding: 0.9rem 2.8rem;
-            background: linear-gradient(135deg, #f472b6, #e879f9);
+            padding: 8px 20px;
+            background: #5c4033;
             color: white;
             text-decoration: none;
+            border-radius: 6px;
             font-weight: 500;
-            font-size: 1rem;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 18px var(--glow-pink);
-            letter-spacing: 0.04em;
+            font-size: 0.9rem;
+            transition: background 0.2s;
         }
-
-        .email-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(244,114,182,0.5);
+        .view-btn:hover {
+            background: #8b5e3c;
         }
-
-        /* Ribbon decoration */
-        .ribbon {
+        .more-projects {
             text-align: center;
+            margin: 30px 0 0;
+            color: #4b5563;
+            font-size: 1.05rem;
+        }
+        .more-projects a {
+            color: #5c4033;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .more-projects a:hover {
+            text-decoration: underline;
+        }
+        .contact-section {
+            display: flex;
+            gap: 60px;
+            padding: 70px 50px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+        }
+        .email-box {
+            flex: 1.2;
+            padding: 0 30px 0 0;
+            border-right: 1px solid #e5e7eb;
+        }
+        .other-contacts {
+            flex: 0.8;
+            padding: 0 0 0 20px;
+            margin-left: auto;
+        }
+        .contact-title {
             font-size: 1.3rem;
-            letter-spacing: 0.5rem;
-            color: var(--accent-soft);
-            margin: 0.5rem 0 0;
-            opacity: 0.8;
+            margin-bottom: 14px;
+            color: #111827;
         }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2.5rem 0 3rem;
-            color: var(--text-dim);
-            font-size: 0.85rem;
+        .email-box p {
+            color: #4b5563;
+            margin-bottom: 18px;
+            font-size: 1.02rem;
         }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-            will-change: opacity, transform;
+        .email-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto; /* 👈 centers horizontally */
+    padding: 10px 28px;
+    background: #5c4033;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+        .email-btn:hover {
+            background: #8b5e3c;
         }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .other-contacts ul {
+            list-style: none;
+            margin-top: 4px;
         }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.6rem; }
-            .header-content { flex-direction: column; gap: 1.5rem; }
-            .profile-photo { width: 160px; height: 160px; align-self: center; }
-            .skills-grid, .projects-grid { grid-template-columns: 1fr; }
-            h2 { font-size: 1.6rem; }
+        .other-contacts li {
+            margin-bottom: 12px;
+            font-size: 1.02rem;
         }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            .container { padding: 0 1.2rem; }
+        .other-contacts a {
+            color: #5c4033;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .other-contacts a:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        @media (max-width: 900px) {
+            .about-section, .contact-section {
+                flex-direction: column;
+                padding: 50px 30px;
+            }
+            .profile-photo {
+                width: 220px;
+                height: 220px;
+                margin: 0 auto 20px;
+            }
+            .email-box {
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+                padding: 0 0 30px 0;
+            }
+            .other-contacts {
+                padding: 30px 0 0 0;
+            }
+        }
+        @media (max-width: 600px) {
+            .projects-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 15px; }
         }
     </style>
 </head>
 <body>
 
-<!-- Floating petals -->
-<div class="petals" id="petals"></div>
+    <div class="container">
 
-<div class="container">
-    <header>
-        <div class="header-content">
-            <div class="header-text">
-                <h1>Akisha Bhujel</h1>
-                <p class="subtitle">✨ Aspiring Data Analyst &nbsp;·&nbsp; BIT Student <span>🌸</span></p>
-                <div class="ribbon">· · ♡ · ·</div>
-                <div class="header-contact">
-                    <!-- GitHub -->
-                    <a href="https://github.com/akisavujel" target="_blank" rel="noopener noreferrer" class="header-contact-link" title="GitHub">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </a>
-                    <!-- Kaggle -->
-                    <a href="https://www.kaggle.com/akisavujel" target="_blank" rel="noopener noreferrer" class="header-contact-link" title="Kaggle">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.358"/>
-                        </svg>
-                    </a>
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/akisa-vujel-5437843a2/" target="_blank" rel="noopener noreferrer" class="header-contact-link" title="LinkedIn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    <!-- Hashnode -->
-<a href="https://hashnode.com/@akisavujel" target="_blank" rel="noopener noreferrer" class="header-contact-link hashnode-link" title="Hashnode">
-    <svg width="18" height="18" viewBox="0 0 337 337" fill="currentColor">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M23.155 100.514C-7.718 131.387-7.718 181.167 23.155 212.04L124.96 313.845C155.833 344.718 205.613 344.718 236.486 313.845L338.291 212.04C369.164 181.167 369.164 131.387 338.291 100.514L236.486-1.291C205.613-32.164 155.833-32.164 124.96-1.291L23.155 100.514ZM214.167 172.967C214.167 195.864 195.564 214.467 172.667 214.467C149.770 214.467 131.167 195.864 131.167 172.967C131.167 150.070 149.770 131.467 172.667 131.467C195.564 131.467 214.167 150.070 214.167 172.967Z"/>
-    </svg>
-</a>
-                </div>
-            </div>
+        <section class="about-section">
             <div class="profile-photo">
-                <img src="images/me.jpg" alt="Akisha Bhujel">
+                <img src="https://i.pinimg.com/280x280_RS/58/9e/59/589e592dc53ec8ecc8b2feae998875a1.jpg" alt="Akisa Vujel">
             </div>
-        </div>
-    </header>
-
-    <main>
-        <section id="about" class="reveal">
-            <h2><span class="emoji">🎀</span>About Me</h2>
-            <p class="about-text">
-                I am a second-year Bachelor of Information Technology (BIT) student with a strong interest in data analysis. I work with datasets to identify patterns and turn data into actionable insights for better decision-making. I focus on solving problems, using technology effectively, and continuously improving my skills. 🌷
-            </p>
+            <div class="about-text">
+    <h2>Akisa Vujel</h2>
+    <p>
+        Hi, my name is Akisa. I'm currently 19 years old and have a strong interest in data analysis. I work with tools like Python (Pandas, Matplotlib, Seaborn), SQL, Tableau, Kaggle, Jupyter Notebook, and Google Sheets to identify patterns and turn data into valuable insights.
+    </p>
+</div>
         </section>
 
-        <section id="skills" class="reveal">
-            <h2><span class="emoji">🍓</span>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming & Querying</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">SQL</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Data Analysis & Visualization</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">Data Visualization</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Web Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Excel</span>
-                        <span class="skill-tag">Jupyter Notebook</span>
-                        <span class="skill-tag">Kaggle</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="reveal">
-            <h2><span class="emoji">🌸</span>Projects</h2>
+        <section class="projects-section">
+            <h2>My Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/1.avif" alt="Insurance Policy EDA">
+<div class="project-placeholder">
+    <img src="images/1.png" alt="Project Name">
+</div>                    <div class="project-content">
+                        <div class="project-title">Insurance Risk & Policy Analysis (Python EDA)</div>
+                        <a href="https://www.kaggle.com/code/akisavujel/insurance-analysis" class="view-btn">View Project</a>
                     </div>
-                    <h3>Insurance Risk & Policy Analysis (Python EDA)</h3>
-                    <a href="https://www.kaggle.com/code/akisavujel/insurance-analysis" class="project-link">View Project ✨</a>
                 </div>
+
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/2.png" alt="Coffee Sales SQL Project">
+<div class="project-placeholder">
+    <img src="images/2.png" alt="Project Name">
+</div>                    <div class="project-content">
+                        <div class="project-title">World Life Expectancy 2024 Analysis</div>
+                        <a href="https://github.com/akisavujel/World-Life-Expectancy-2024" class="view-btn">View Project</a>
                     </div>
-                    <h3>Sales Performance Analysis using MySQL</h3>
-                    <a href="https://github.com/akisavujel/Coffee-database-mysql" class="project-link">View Project ✨</a>
                 </div>
+
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/4.webp" alt="AB testing">
+<div class="project-placeholder">
+    <img src="images/3.webp" alt="Project Name">
+</div>                    <div class="project-content">
+                        <div class="project-title">YouTube Thumbnail A/B Testing</div>
+                        <a href="https://github.com/akisavujel/Youtube-thumbnail-A-B-testing-PYTHON" class="view-btn">View Project</a>
                     </div>
-                    <h3>YouTube Thumbnail A/B Testing Python</h3>
-                    <a href="https://github.com/akisavujel/Youtube-thumbnail-A-B-testing-PYTHON" class="project-link">View Project ✨</a>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/3.png" alt="machine learning">
-                    </div>
-                    <h3>Machine Learning</h3>
-                    <a href="https://github.com/akisavujel/Machine-Learning" class="project-link">View Project ✨</a>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/5.png" alt="Heart Failure Dashboard">
-                    </div>
-                    <h3>Heart Failure Dashboard</h3>
-                    <a href="https://public.tableau.com/app/profile/akisha.bhujel/viz/Book1_17708742326480/Dashboard1?publish=yes" class="project-link">View Project ✨</a>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/6.jpeg" alt="World Life Analysis">
-                    </div>
-                    <h3>World Life Analysis</h3>
-                    <a href="https://github.com/akisavujel/World-Life-Expectancy-2024" class="project-link">View Project ✨</a>
                 </div>
             </div>
-            <p style="text-align:center; margin-top:2rem; color:var(--text-secondary); font-size:1rem;">
-                To view more of my projects, visit my 
-                <a href="https://github.com/akisavujel" target="_blank" style="color:var(--accent-rose); font-weight:500; text-decoration:none; border-bottom: 1.5px dotted var(--accent-rose);">GitHub 🍓</a>
-            </p>
-        </section>
 
-        <section id="certifications" class="reveal">
-            <h2><span class="emoji">🎀</span>Certifications</h2>
-            <div class="cert-list">
-                <a href="https://www.kaggle.com/learn/certification/akisavujel/data-visualization" target="_blank" class="cert-item-link">
-                    <div class="cert-item"><p>Kaggle Certificate in Data Visualization</p></div>
-                </a>
-                <a href="https://www.linkedin.com/in/akishabhujel/overlay/Certifications/1134522276/treasury/?profileId=ACoAAGK22gMBbi6RgI6RexMw-k72rAaY7ej949w" target="_blank" class="cert-item-link">
-                    <div class="cert-item"><p>Microsoft Excel Course</p></div>
-                </a>
-                <a href="https://oneroadmap.io/skills/sql/certificate/CERT-57653593" target="_blank" class="cert-item-link">
-                    <div class="cert-item"><p>OneRoadmap SQL Course</p></div>
-                </a>
+            <div class="more-projects">
+                To view more of my projects, visit my <a href="https://github.com/akisavujel" target="_blank">GitHub</a> or <a href="https://www.kaggle.com/akisavujel" target="_blank">Kaggle</a>.
             </div>
         </section>
 
-        <section id="contact-email" class="reveal">
-            <h2><span class="emoji">💌</span>Get In Touch</h2>
-            <div class="email-contact-wrapper">
-                <p class="email-text">Have a question or want to work together? Feel free to reach out — I'd love to hear from you! 🌷</p>
-                <a href="mailto:akishabhujel@gmail.com" class="email-button">Email Me 💗</a>
+        <section class="contact-section">
+            <div class="email-box">
+                <h3 class="contact-title">Get In Touch</h3>
+                <p>Have a question or want to collaborate? Feel free to reach out.</p>
+                <a href="mailto:akishabhujel@gmail.com" class="email-btn">Email Me</a>
+            </div>
+
+            <div class="other-contacts">
+                <h3 class="contact-title">Contact Info</h3>
+                <ul>
+                    <li><a href="https://github.com/akisavujel" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.11.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.8 24 17.304 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a></li>
+                    <li><a href="https://www.kaggle.com/akisavujel" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.358"/></svg>
+                        Kaggle
+                    </a></li>
+                    <li><a href="https://www.linkedin.com/in/akisa-vujel-5437843a2/" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
+                        LinkedIn
+                    </a></li>
+                    <li><a href="https://hashnode.com/@akisavujel" target="_blank">
+    <svg class="icon" viewBox="0 0 640 640" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M99.7 235.1C52.8 281.1 52.8 358 99.7 404.9L235.6 540.8C281.6 587.7 358.5 587.7 405.4 540.8L541.3 404.9C588.2 358 588.2 281.1 541.3 235.1L405.4 99.2C358.5 52.3 281.6 52.3 235.6 99.2L99.7 235.1zM260 260.5C292.9 227.4 346.4 227.1 379.5 260C412.6 292.9 412.9 346.4 380 379.5C347.1 412.6 293.6 412.9 260.5 380C227.4 347.1 227.1 293.6 260 260.5z"/>
+    </svg>
+    Hashnode
+</a></li>
+                </ul>
             </div>
         </section>
-    </main>
+    </div>
 
-    <footer>
-        <p>🌸 made with love · akisha bhujel · 2026 🌸</p>
-    </footer>
-</div>
-
-<script>
-    // Floating petals — lightweight, no scroll jank
-    const petalEmojis = ['🌸', '🌷', '🍓', '✿', '🌺', '💗'];
-    const container = document.getElementById('petals');
-    for (let i = 0; i < 18; i++) {
-        const p = document.createElement('span');
-        p.className = 'petal';
-        p.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
-        p.style.left = Math.random() * 100 + 'vw';
-        p.style.fontSize = (0.8 + Math.random() * 0.8) + 'rem';
-        p.style.animationDuration = (12 + Math.random() * 16) + 's';
-        p.style.animationDelay = (Math.random() * 20) + 's';
-        container.appendChild(p);
-    }
-
-    // Buttery smooth reveal — pure IntersectionObserver, no timeouts
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('visible');
-                observer.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
 </body>
 </html>
