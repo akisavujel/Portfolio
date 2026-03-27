@@ -408,7 +408,78 @@
 </section>
 
 <footer>© 2025 Akisa Vujel · All rights reserved.</footer>
+<script>
+  // ── THEME ──
+  function toggleTheme() {
+    const html = document.documentElement;
+    const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  }
+  (function() {
+    const saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  })();
 
+  // ── EMAILJS ──
+  // Replace these three placeholders after setting up at emailjs.com
+  emailjs.init('YOUR_PUBLIC_KEY');
+
+  function showToast(msg, type) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast ' + type;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  function setLoading(on) {
+    const btn  = document.getElementById('submitBtn');
+    const txt  = document.getElementById('btnText');
+    const spin = document.getElementById('spinner');
+    btn.disabled = on;
+    txt.textContent = on ? 'Sending...' : 'Send Message';
+    spin.style.display = on ? 'block' : 'none';
+  }
+
+  function clearErrors() {
+    document.querySelectorAll('.form-input, .form-textarea').forEach(el => el.classList.remove('error'));
+  }
+
+  function sendEmail() {
+    clearErrors();
+    const name    = document.getElementById('from_name');
+    const email   = document.getElementById('from_email');
+    const subject = document.getElementById('subject');
+    const message = document.getElementById('message');
+
+    let valid = true;
+    if (!name.value.trim())    { name.classList.add('error');    valid = false; }
+    if (!email.value.trim() || !/\S+@\S+\.\S+/.test(email.value)) { email.classList.add('error'); valid = false; }
+    if (!subject.value.trim()) { subject.classList.add('error'); valid = false; }
+    if (!message.value.trim()) { message.classList.add('error'); valid = false; }
+    if (!valid) { showToast('Please fill in all fields correctly.', 'error'); return; }
+
+    setLoading(true);
+
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+      from_name:  name.value.trim(),
+      from_email: email.value.trim(),
+      subject:    subject.value.trim(),
+      message:    message.value.trim(),
+      to_email:   'akishabhujel@gmail.com'
+    })
+    .then(() => {
+      setLoading(false);
+      showToast("Message sent! I'll get back to you soon.", 'success');
+      name.value = ''; email.value = ''; subject.value = ''; message.value = '';
+    })
+    .catch(() => {
+      setLoading(false);
+      showToast('Something went wrong. Please try again.', 'error');
+    });
+  }
+</script>
 
 </body>
 </html>
